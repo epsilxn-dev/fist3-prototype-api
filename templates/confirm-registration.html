@@ -1,0 +1,78 @@
+<body>
+<div class="container">
+    <div class="header">
+        <p>Факультет информационных систем и технологий</p>
+    </div>
+    <div class="main">
+        <div class="text-wrapper">
+            <p class="main-hello">Добро пожаловать!</p>
+            <p>Для подтверждения регистрации введите код ниже в соответствующее поле на сайте</p>
+            <p>Код подтверждения регистрации: <b>{{ code }}<b></p>
+        </div>
+    </div>
+</div>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+    }
+
+    body {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        background-color: white;
+    }
+
+    a {
+        border-radius: 5px;
+        background-color: #3535fd;
+        padding: 1rem;
+        text-decoration: none;
+        color: white;
+    }
+
+    .header {
+        background-color: #e8e8e8;
+        padding: 1rem;
+    }
+
+    .main {
+        padding: 1rem;
+    }
+
+    div > p {
+        margin: 1rem 0;
+    }
+
+    .header > p {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        width: 50rem;
+        min-width: 25rem;
+        overflow: hidden;
+        padding: 1rem;
+    }
+
+    .text-wrapper {
+        padding: 1rem;
+    }
+
+    .main-hello {
+        font-size: 2rem;
+        color: gray;
+        text-align: center;
+    }
+
+    .action-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+</style>
+</body>
+
