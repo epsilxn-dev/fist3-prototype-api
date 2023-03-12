@@ -8,7 +8,7 @@ class QuestionType(models.Model):
         return f"{self.question_type}"
 
     class Meta:
-        db_table = "faq_question_type"
+        db_table = "qna_question_type"
 
 
 class QuestionAndAnswers(models.Model):
@@ -24,4 +24,4 @@ class QuestionAndAnswers(models.Model):
         return f"{self.id}"
 
     class Meta:
-        db_table = "faq_question_answer"
+        db_table = "qna_question"

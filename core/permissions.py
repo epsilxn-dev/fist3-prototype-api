@@ -30,9 +30,8 @@ class SupportAndHigher(BasePermission):
 
 
 class ModeratorAndHigher(BasePermission):
-    def __init__(self, allowed_methods) -> None:
+    def __init__(self) -> None:
         super().__init__()
-        self.allowed_methods = allowed_methods
 
     def has_permission(self, request: Request, view):
         role = Role.objects.get(name="MODERATOR")

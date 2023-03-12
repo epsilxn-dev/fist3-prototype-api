@@ -4,10 +4,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('api/v1/', include("modules.user.urls")),
     path('api/v1/', include("modules.document.urls")),
     path('api/v1/', include("modules.reactions.urls")),
+    path('api/v1/', include("modules.admin.urls")),
+    path('api/v1/', include("modules.files.urls")),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

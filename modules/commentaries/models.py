@@ -32,6 +32,6 @@ class ChildCommentary(models.Model):
         return f"{self.id}"
 
     class Meta:
-        db_table = "cmn_child_commentary"
+        db_table = "cmn_commentary_child"
         ordering = ["id"]
 

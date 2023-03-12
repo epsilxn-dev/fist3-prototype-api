@@ -13,7 +13,7 @@ class Role(models.Model):
         return self.name
 
     class Meta:
-        db_table = "usr_role"
+        db_table = "prs_role"
         ordering = ["int_level"]
 
 
@@ -21,8 +21,7 @@ class User(AbstractUser):
     middle_name = models.CharField(max_length=32, verbose_name="Отчество", default=None, blank=True, null=True)
     email = models.EmailField(verbose_name="Почта", unique=True)
     is_confirmed_email = models.BooleanField(default=False, verbose_name="Почта подтверждена?")
-    code_email = models.TextField(verbose_name="Токен для подтверждения",
-                                  null=True, blank=True, default=None)
+    code_email = models.TextField(verbose_name="Токен для подтверждения", null=True, blank=True, default=None)
     code_email_dt = models.DateTimeField(verbose_name="Действителен до", null=True, blank=True)
     code_password = models.CharField(max_length=1024, verbose_name="Токен для замены пароля",
                                      null=True, blank=True, default=None)
@@ -42,7 +41,7 @@ class User(AbstractUser):
         ordering = ["id"]
         verbose_name = "Пользователь"
         verbose_name_plural = "Пользователи"
-        db_table = "usr_user"
+        db_table = "prs_person"
 
     def save(self, *args, **kwargs):
         if self.pk is None:
@@ -64,7 +63,7 @@ class AccessTokens(models.Model):
     valid_to = models.DateTimeField(default=None)
 
     class Meta:
-        db_table = "usr_access_tokens"
+        db_table = "prs_access_token"
 
 
 class RefreshTokens(models.Model):
@@ -74,4 +73,4 @@ class RefreshTokens(models.Model):
     access = models.OneToOneField(AccessTokens, on_delete=models.CASCADE)
 
     class Meta:
-        db_table = "usr_refresh_tokens"
+        db_table = "prs_refresh_token"

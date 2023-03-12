@@ -13,11 +13,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "192.168.0.46"]
 
-JWT_ACCESS_LIFETIME = timedelta(minutes=10)
-JWT_REFRESH_LIFETIME = timedelta(days=7)
+JWT_ACCESS_LIFETIME = timedelta(days=123)
+JWT_REFRESH_LIFETIME = timedelta(days=123)
 CORS_ALLOWED_ORIGINS = ["http://127.0.0.1:3000", "http://127.0.0.1:5173", "http://192.168.0.46:5173"]
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = ["http://127.0.0.1:3000", "http://127.0.0.1:5173", "http://192.168.0.46:5173"]
+
+MAX_TAGS_PER_ENTITY = 10
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
@@ -43,10 +45,8 @@ REST_FRAMEWORK = {
 }
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
@@ -58,14 +58,15 @@ INSTALLED_APPS = [
     'modules.commentaries',
     'modules.questions',
     'modules.files',
+    'modules.structure'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
     "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    "django.contrib.sessions.middleware.SessionMiddleware",
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -128,7 +129,7 @@ FIRST_DAY_OF_WEEK = 1
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'static'
 
-MEDIA_URL = "media/"
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = "files/"
+MEDIA_ROOT = BASE_DIR / 'files'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

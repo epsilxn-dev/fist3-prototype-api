@@ -12,7 +12,7 @@ from .models import Role, User
 
 class UserSerializer(serializers.ModelSerializer):
     image = serializers.ImageField(use_url=True)
-    
+
     class Meta:
         model = User
         fields = ["id", "username", "first_name", "last_name", "email", "image", "role",
@@ -20,6 +20,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class RegistrationSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(required=False)
 
     def create(self, validated_data):
         user = User.objects.create_user(**validated_data)
@@ -37,7 +38,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ["username", "password", "email"]
+        fields = ["id", "username", "password", "email", "first_name", "last_name", "middle_name"]
 
 
 class AuthorizationSerializer(serializers.ModelSerializer):
